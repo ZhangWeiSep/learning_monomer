@@ -1,0 +1,63 @@
+sql:
+  level: debug
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    druid:
+      url: jdbc:mysql://47.114.179.20:3306/learning_treasure?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+      username: root
+      password: 520fwj
+
+      max-active: 100
+      min-idle: 10
+      max-wait: 60000
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      #      stat-view-servlet:
+      #        enabled: true
+      #        url-pattern: /db/*
+      #        allow: 127.0.0.1,222.190.123.98
+      #        login-username: sinoroad
+      #        login-password: sinoroad
+      filter:
+        stat:
+          # 慢sql
+          enabled: true
+          log-slow-sql: true
+          slow-sql-millis: 3000
+          merge-sql: false
+        wall:
+          config:
+            multi-statement-allow: true
+      web-stat-filter:
+        enabled: true
+        # 排除监控的请求
+        exclusions: "*.ico,*.js,*.json,*.css,*.png,*.jpg,/db/**/*.html"
+        # 监控一次接口访问执行的所有sql
+        profile-enable: true
+
+  # lettuce客户端
+  cache:
+    type: redis
+  redis:
+    database: 15
+    password: 520fwj
+    port: 6379
+    host: 47.114.179.20 # server host
+    lettuce:
+      pool:
+        max-idle: 8
+        min-idle: 0
+        max-active: 8
+        max-wait: -1ms
+      shutdown-timeout: 100ms
+#session:
+#  store-type: redis

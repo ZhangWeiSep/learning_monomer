@@ -1,0 +1,21 @@
+server:
+  port: 9100
+
+spring:
+  # \u73AF\u5883 dev|test|prod
+  profiles:
+    active: @active@
+  application:
+    name: system-server
+    # 文件大小上传配置
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+mybatis-plus:
+  mapper-locations: classpath*:mapper/**/*.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: indi.zhangweisep.**.dto.**,indi.zhangweisep.**.vo.**

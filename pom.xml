@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.3.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <groupId>indi.zhangweisep</groupId>
+    <artifactId>learning</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>learning</name>
+    <description>Demo project for Spring Boot</description>
+
+    <!--    配置多环境-->
+    <profiles>
+        <profile>
+            <!--开发环境-->
+            <id>dev</id>
+            <properties>
+                <active>dev</active>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <!--测试环境-->
+            <id>test</id>
+            <properties>
+                <active>test</active>
+            </properties>
+        </profile>
+        <profile>
+            <!--正式环境-->
+            <id>prod</id>
+            <properties>
+                <active>prod</active>
+            </properties>
+        </profile>
+    </profiles>
+
+    <properties>
+        <java.version>11</java.version>
+        <mysql.version>8.0.17</mysql.version>
+        <druid.version>1.1.22</druid.version>
+        <mybatisplus.version>3.3.1</mybatisplus.version>
+        <hutool.version>5.3.10</hutool.version>
+        <guava.version>29.0-jre</guava.version>
+        <fastjson.version>1.2.73</fastjson.version>
+        <smart.doc.version>1.1.4</smart.doc.version>
+    </properties>
+
+    <modules>
+        <!--        基础运行包-->
+        <module>common</module>
+        <!--        后台管理系统-->
+        <module>management-system</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.github.shalousun</groupId>
+            <artifactId>smart-doc</artifactId>
+            <version>1.9.1</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <!--<plugin>
+                <groupId>com.github.shalousun</groupId>
+                <artifactId>smart-doc-maven-plugin</artifactId>
+                <version>${smart.doc.version}</version>
+                <configuration>
+                    &lt;!&ndash;指定生成文档的使用的配置文件,配置文件放在自己的项目中&ndash;&gt;
+                    <configFile>./smart-doc.json</configFile>
+                    &lt;!&ndash;指定项目名称&ndash;&gt;
+                    <projectName>learning_monomer</projectName>
+                    &lt;!&ndash;smart-doc实现自动分析依赖树加载第三方依赖的源码，如果一些框架依赖库加载不到导致报错，这时请使用excludes排除掉&ndash;&gt;
+                    <excludes>
+                        &lt;!&ndash;格式为：groupId:artifactId;参考如下&ndash;&gt;
+                        &lt;!&ndash;1.0.7版本开始你还可以用正则匹配排除,如：poi.* &ndash;&gt;
+&lt;!&ndash;                        <exclude>com.alibaba:fastjson</exclude>&ndash;&gt;
+                    </excludes>
+                    &lt;!&ndash;自1.0.8版本开始，插件提供includes支持&ndash;&gt;
+                    &lt;!&ndash;smart-doc能自动分析依赖树加载所有依赖源码，原则上会影响文档构建效率，因此你可以使用includes来让插件加载你配置的组件&ndash;&gt;
+                    <includes>
+                        &lt;!&ndash;格式为：groupId:artifactId;参考如下&ndash;&gt;
+                        <include>com.alibaba:fastjson</include>
+                    </includes>
+                </configuration>
+                <executions>
+                    <execution>
+                        &lt;!&ndash;如果不需要在执行编译时启动smart-doc，则将phase注释掉&ndash;&gt;
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>html</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>-->
+        </plugins>
+    </build>
+
+</project>
