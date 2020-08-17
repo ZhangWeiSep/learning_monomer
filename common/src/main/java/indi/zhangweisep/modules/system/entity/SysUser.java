@@ -1,9 +1,7 @@
 package indi.zhangweisep.modules.system.entity;
 
-import indi.zhangweisep.common.base.BaseEntity;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
+import indi.zhangweisep.common.base.entity.BaseEntity;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
@@ -17,6 +15,9 @@ import java.io.Serializable;
  * @since 2020-08-14
  */
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @ToString(callSuper = true)

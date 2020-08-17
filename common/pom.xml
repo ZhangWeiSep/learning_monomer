@@ -14,14 +14,16 @@
 
     <name>common</name>
     <packaging>jar</packaging>
-    <description>Demo project for Spring Boot</description>
+    <description>项目通用jar包，引入通用外部jar，编码部分通用代码</description>
 
     <dependencies>
         <!-- webSocket -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-websocket</artifactId>
+            <optional>true</optional>
         </dependency>
+
         <!-- mysql 驱动 -->
         <dependency>
             <groupId>mysql</groupId>
@@ -29,43 +31,47 @@
             <version>${mysql.version}</version>
             <scope>runtime</scope>
         </dependency>
+
         <!-- 阿里 druid 连接池 -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
             <version>${druid.version}</version>
         </dependency>
+
         <!--mybatisPlus-->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>${mybatisplus.version}</version>
         </dependency>
-        <!--noSql数据库-->
+
+        <!--noSql数据库 - redis -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
 
         <!-- region start 工具包 -->
+        <!-- lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <optional>true</optional>
+            <version>${lombok.version}</version>
         </dependency>
-
+        <!-- hutool -->
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
             <version>${hutool.version}</version>
         </dependency>
-
+        <!-- google——guava -->
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>${guava.version}</version>
         </dependency>
-
+        <!-- alibaba——fastjson -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>

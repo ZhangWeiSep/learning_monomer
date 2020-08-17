@@ -1,9 +1,11 @@
-package indi.zhangweisep.common.base;
+package indi.zhangweisep.common.base.entity;
 
 import com.alibaba.druid.sql.ast.statement.SQLColumnDefinition;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import java.time.LocalDateTime;
 
@@ -18,6 +20,7 @@ import java.time.LocalDateTime;
  * @since 2020/8/14 10:37
  */
 @Data
+@Accessors(chain = true)
 public class BaseEntity {
 
     /**
@@ -54,6 +57,7 @@ public class BaseEntity {
     /**
      * 删除标识
      */
+    @TableLogic
     private Boolean delFlag;
 
 }

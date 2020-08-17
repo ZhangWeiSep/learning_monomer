@@ -1,6 +1,3 @@
-sql:
-  level: debug
-
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
@@ -45,19 +42,19 @@ spring:
         profile-enable: true
 
   # lettuce客户端
-  cache:
-    type: redis
-  redis:
-    database: 15
-    password: 520fwj
-    port: 6379
-    host: 47.114.179.20 # server host
-    lettuce:
-      pool:
-        max-idle: 8
-        min-idle: 0
-        max-active: 8
-        max-wait: -1ms
-      shutdown-timeout: 100ms
+#  cache:
+#    type: redis
+#  redis:
+#    database: 15
+#    password: 520fwj
+#    port: 6379
+#    host: 47.114.179.20 # server host
+#    lettuce:
+#      pool:
+#        max-idle: 8
+#        min-idle: 0
+#        max-active: 8
+#        max-wait: -1ms
+#      shutdown-timeout: 100ms
 #session:
 #  store-type: redis

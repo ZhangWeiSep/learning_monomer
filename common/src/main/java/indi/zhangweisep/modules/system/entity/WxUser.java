@@ -1,6 +1,6 @@
 package indi.zhangweisep.modules.system.entity;
 
-import indi.zhangweisep.common.base.BaseEntity;
+import indi.zhangweisep.common.base.entity.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
