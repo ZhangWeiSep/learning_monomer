@@ -14,7 +14,6 @@ import org.springframework.scheduling.annotation.EnableAsync;
  * @since 2020/8/14 13:25
  */
 @Slf4j
-@EnableAsync
 @SpringBootApplication
 @MapperScan(basePackages = "indi.zhangweisep.modules.**.mapper")
 public class ManagementSystemApplication {

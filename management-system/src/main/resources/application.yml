@@ -12,6 +12,64 @@ spring:
     multipart:
       max-file-size: 20MB
       max-request-size: 20MB
+  #数据库连接配置
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    druid:
+      max-active: 100
+      min-idle: 10
+      max-wait: 60000
+
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      #开启内置监控页面配置
+      stat-view-servlet:
+        #是否启用监控
+        enabled: true
+        #监控页面地址
+        url-pattern: /db/*
+        #白名单
+        allow: 127.0.0.1
+        #登录用户名
+        login-username: zhangweisep
+        #登录密码
+        login-password: 520fwj
+      #开启慢sql统计
+      filter:
+        stat:
+          # 慢sql
+          enabled: true
+          log-slow-sql: true
+          slow-sql-millis: 3000
+          merge-sql: false
+        wall:
+          config:
+            multi-statement-allow: true
+      #过滤配置
+      web-stat-filter:
+        enabled: true
+        # 排除监控的请求
+        exclusions: "*.ico,*.js,*.json,*.css,*.png,*.jpg,/db/**/*.html"
+        # 监控一次接口访问执行的所有sql
+        profile-enable: true
+  # lettuce客户端
+  cache:
+    type: redis
+  redis:
+    lettuce:
+      pool:
+        max-idle: 8
+        min-idle: 0
+        max-active: 8
+        max-wait: -1ms
+      shutdown-timeout: 100ms
   jackson:
     time-zone: GMT+8
     date-format: yyyy-MM-dd HH:mm:ss
@@ -41,3 +99,13 @@ mybatis-plus:
     #如果查询结果中包含空值的列，则MyBatis在映射的时候，会忽略这个字段
     call-setters-on-nulls: true
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#系统配置信息
+learning:
+  #登录令牌配置
+  token:
+    #是否开启单点登录
+    sdl: false
+    #token过期时间
+    tokenExpireTime: 60
+    #登录状态过期时间
+    saveLoginTime: 7

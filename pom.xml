@@ -7,7 +7,6 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.3.3.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <groupId>indi.zhangweisep</groupId>
@@ -46,9 +45,10 @@
     </profiles>
 
     <properties>
-        <java.version>11</java.version>
+        <java.version>1.8</java.version>
         <mysql.version>8.0.17</mysql.version>
         <druid.version>1.1.22</druid.version>
+        <commons.pool2.version>2.6.0</commons.pool2.version>
         <mybatisplus.version>3.3.1</mybatisplus.version>
         <lombok.version>1.18.12</lombok.version>
         <hutool.version>5.3.10</hutool.version>

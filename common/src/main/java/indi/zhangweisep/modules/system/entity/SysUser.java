@@ -1,10 +1,12 @@
 package indi.zhangweisep.modules.system.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import indi.zhangweisep.common.base.entity.BaseEntity;
 import lombok.*;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * <p>
@@ -26,9 +28,9 @@ public class SysUser extends BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 登录名
+     * 登录名/用户名
      */
-    private String loginName;
+    private String userName;
 
     /**
      * 密码
@@ -36,9 +38,9 @@ public class SysUser extends BaseEntity implements Serializable {
     private String password;
 
     /**
-     * 用户名（自定义显示名称）
+     * 用户名/昵称（自定义显示名称）
      */
-    private String userName;
+    private String nickName;
 
     /**
      * 真实姓名
@@ -99,5 +101,11 @@ public class SysUser extends BaseEntity implements Serializable {
      * 绑定的微信unionid
      */
     private String wxUnionId;
+
+    /**
+     * 角色列表
+     */
+    @TableField(exist = false)
+    private List<Role> roleList;
 
 }

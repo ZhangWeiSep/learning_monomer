@@ -43,7 +43,7 @@ public class ResultData<T> implements Serializable {
     /**
      * 错误信息
      */
-    private String error;
+    private String message;
 
     /**
      * 请求返回值
@@ -70,7 +70,7 @@ public class ResultData<T> implements Serializable {
     }
 
     /**
-     * 请求成功——返回结果集
+     * 请求成功——返回结果
      *
      * @param data 数据
      * @return {@link ResultData<T>}
@@ -99,7 +99,7 @@ public class ResultData<T> implements Serializable {
      * @return {@link ResultData<T>}
      */
     public static <T> ResultData<T> error() {
-        return error(ServiceCodeEnum.SUCCESS.getMessage());
+        return error(ServiceCodeEnum.SYS_ERROR.getMessage());
     }
 
     /**
@@ -113,13 +113,13 @@ public class ResultData<T> implements Serializable {
     }
 
     /**
-     * 请求失败——返回结果集
+     * 请求失败——返回结果
      *
      * @param data 数据
      * @return {@link ResultData<T>}
      */
     public static <T> ResultData<T> error(T data) {
-        return error(ServiceCodeEnum.SUCCESS.getMessage(), data);
+        return error(ServiceCodeEnum.SYS_ERROR.getMessage(), data);
     }
 
     /**

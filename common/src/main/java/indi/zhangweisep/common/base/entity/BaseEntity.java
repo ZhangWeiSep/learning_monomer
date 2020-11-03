@@ -1,6 +1,5 @@
 package indi.zhangweisep.common.base.entity;
 
-import com.alibaba.druid.sql.ast.statement.SQLColumnDefinition;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
@@ -27,7 +26,7 @@ public class BaseEntity {
      * id
      */
     @TableId(value = "id", type = IdType.AUTO)
-    private String id;
+    private Long id;
 
     /**
      * 创建人
